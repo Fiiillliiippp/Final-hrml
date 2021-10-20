@@ -276,8 +276,43 @@ strong {
 }
 
 
+footer {
+    font-size: 14px;
+    
+}
 
+footer p {
+    color: #4b4b4b;
+    margin: 24px 0;
+    float: left;
+}
 
+footer li a {
+    color: #979797;
+}
+
+footer a:hover,
+footer a:focus {
+    text-decoration: underline;
+}
+
+footer li::after{
+    content: '/';
+    color: #979797;
+    margin: 0 5px;
+}
+
+footer li:last-child:after{
+    content: none;
+}
+
+footer .menu {
+    color: #989898;
+    margin: 24px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    float: right;
+}
 
 
 

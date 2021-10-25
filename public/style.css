@@ -1,8 +1,19 @@
+html {
+    box-sizing: border-box;
+}
+
+/* TARGET / CONTEXT = RESAULT */
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
 /* GENETAL */
 body {
+    font-size: 100%;
     color: #323232;
     background: #eeefed;
-    -webkit-font-smoothing: antialiased
+    -webkit-font-smoothing: antialiased;
 }
 
 
@@ -59,14 +70,22 @@ strong {
 }
 
 .container {
-    width: 1170px;
+    max-width: 1170px;
     margin: 0 auto;
+    padding: 0 1.25em; /* padding ciel deleno fontsize = em*/
+}
+
+.gallery .container {
+    padding: 0;
 }
 
 
-
-
 /* CONTACT */
+.contact-bar {
+    background: #39a3d4;
+    /* height: 84px; */
+    font-size: 0.875em; /*14px */
+}
 .contact-bar,
 .presonal a {
     color: #fff;
@@ -74,37 +93,41 @@ strong {
 
 .presonal {
     float: left;
+    margin: 2.071em 0;
 }
 
 .social {
     float: right;
-    margin-top: 18px;
+    margin: 1.284em 0;
 }
 
 .presonal li {
-    margin-right: 70px;
-    margin-top: 29px;
+    margin-right: 5em;
+}
+
+.presonal li:last-child {
+    margin-right: 0;
 }
 
 .presonal .fa {
-    font-size: 28px;
-    margin-right: 10px;
+    font-size: 1.75em;
+    margin-right: 0.314em;
 }
 
 .social .fa {
-    font-size: 17px;
+    font-size: 1.063em;
 }
 
 .social-icon {
     display: block;
-    width: 48px;
-    height: 48px;
+    width: 3.429em;
+    height: 3.429em;
+    line-height: 3.286em;
     color: #989898;
     background: #eeefed;
     text-align: center;
-    line-height: 46px;
-    border-radius: 2px;
-    margin-right: 2px;
+    border-radius: 0.143em;
+    margin-right: 0.143em;
 }
 
 .social-icon:hover,
@@ -113,11 +136,6 @@ strong {
     background: #5bd0ec;
 }
 
-.contact-bar {
-    background: #39a3d4;
-    height: 84px;
-    font-size: 14px;
-}
 
 /* NAVIGATION */
 .nav-bar {
@@ -129,34 +147,41 @@ strong {
 }
 
 .logo a {
+    color: #de5728;
     display: block;
-    background: url(../img/logo.png) 0 0 no-repeat;
-    width: 257px;
-    height: 50px;
-    text-indent: -999999px;
-    margin-top: 12px;
+}
+
+.logo strong {
+    color: #323232;
+}
+
+.logo .fa {
+    position: relative;
+    top: -0.15em;
 }
 
 .navigation {
     float: right;
+    width: 48.58407079646018%;
 }
 
 .navigation .fa {
     display: block;
     padding-bottom: 10px;
-    padding-top: 28px;
+    /* padding-top: 28px; */
 }
 
 .navigation a {
     color: #a6a6a6;
     display: block;
-    width: 136px;
-    height: 120px;
+    padding: 1.85em 0;
+    height: 7.5em;
     text-align: center;
     text-transform: uppercase;
 }
 
 .navigation li {
+    width: 25%;
     border-left: 1px solid #cecece;
 }
 
@@ -180,21 +205,21 @@ strong {
 
 .post-header {
     height: 180px;
-    background: url('../img/DSC08315.JPG') center -1436px no-repeat;
+    background: url('../img/DSC08315.JPG') -2000px -1436px no-repeat;
 }
 
 .post-title {
     color: #fff;
-    font-size: 38px;
+    font-size: 2.375em;
     font-weight: 400;
     background: #de5728;
-    padding: 11px 23px;
+    padding: 11px 18px;
     border-radius: 7px;
     display: inline-block;
     text-transform: uppercase;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
     margin-top: 24px;
-    margin-left: -13%;
+    margin-left: 0;
 }
 
 .post-content {
@@ -206,18 +231,18 @@ strong {
 .post-content h2 {
     color: #323232;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 1.875em;
     line-height: 42px;
 }
 
 .controls {
-    width: 642px;
+    max-width: 720px;
     margin: 50px auto;
     text-align: center;
 }
 
 .controls a {
-    font-size: 22px;
+    font-size: 1.735em;
     font-weight: 300;
     color: #39a3d4;
     text-transform: uppercase;
@@ -255,13 +280,13 @@ strong {
 }
 
 .pre-footer p {
-    font-size: 14px;
+    font-size: 0.875em;
     text-transform: uppercase;
     line-height: 26px;
 }
 
 .pre-footer strong {
-    font-size: 22px;
+    font-size: 1.375em;
     font-weight: 600;
     text-transform: none;
 }
@@ -277,7 +302,7 @@ strong {
 
 
 footer {
-    font-size: 14px;
+    font-size: 0.875em;
     
 }
 

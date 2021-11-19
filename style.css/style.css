@@ -291,6 +291,7 @@ img {
 
 .gallery img {
     width: 50%;
+    opacity: .85;
 }
 
 .gallery img:hover,
@@ -299,7 +300,25 @@ img {
     transition: 0.5s ease;
 }
 
+#overlay{
+    background: rgba(0, 0, 0, .7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    text-align: center;
+}
 
+#overlay img {
+    width: 70%;
+    height: auto;
+    margin:6% auto;
+    border: #fff .3em solid;
+    border-radius: .3em;
+
+}
 
 /* FOOTER */
 

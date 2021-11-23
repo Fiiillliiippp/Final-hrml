@@ -73,40 +73,46 @@
                     </h2>
                     
                     <ul class="menu controls">
-                        <li class="selected"><a href="index.html">Všetko</a></li>
-                        <li><a href="blogy.html">Blogy</a></li>
-                        <li><a href="appky.html">Appky</a></li>
-                        <li><a href="moje.html">Len pre mňa</a></li>
+                        <li class="selected"><a href="#index">Všetko</a></li>
+                        <li><a href="#blog">Blogy</a></li>
+                        <li><a href="#moje">Len pre mňa</a></li>
+                        <li><a href="#apps">Appky</a></li>
                     </ul>
                     
                     <form class="menu-dropdown">
                         <select>
-                            <option value="index.html">Všetko</option>
-                            <option value="blogy.html">Blogy</option>
-                            <option value="appky.html">Appky</option>
-                            <option value="moje.html">Len pre mňa</option>
+                            <option value="#index">Všetko</option>
+                            <option value="#blog">Blogy</option>
+                            <option value="#moje">Len pre mňa</option>
+                            <option value="#apps">Appky</option>
                         </select>
                     </form>
                     
                 </div>
                 <section class="gallery">
                     <div class="container">
-                        <a href="../img/blog.png">
-                            <img src="../img/blog.png" alt="Prvý blog" width="585px" height="auto">
-                        </a>
-                        <a href="../img/app.png">
-                            <img src="../img/app.png" alt="Prvá appka" width="585px" height="auto">
-                        </a>
-                        <a href="../img/pandemia.png">
-                            <img src="../img/pandemia.png" alt="Pokus o napodobnenie stranky" width="585px"
-                            height="auto">
-                        </a>
-                        <a href="../img/responzivita.png">
-                            <img src="../img/responzivita.png" alt="Responzivita" width="585px" height="auto">
-                        </a>
-                        <a href="../img/alex.png">
-                            <img src="../img/alex.png" alt="Zo zábavy pre moju priateľku" width="585px" height="auto">
-                        </a>
+                        <div id="blog">
+                            <a href="../img/blog.png">
+                                <img src="../img/blog.png" alt="Prvý blog" width="585px" height="auto">
+                            </a>
+                            <a href="../img/pandemia.png">
+                                <img src="../img/pandemia.png" alt="Pokus o napodobnenie stranky" width="585px"
+                                height="auto">
+                            </a>
+                        </div>
+                        <div id="moje">
+                                <a href="../img/responzivita.png">
+                                    <img src="../img/responzivita.png" alt="Responzivita" width="585px" height="auto">
+                                </a>
+                                <a href="../img/alex.png">
+                                    <img src="../img/alex.png" alt="Zo zábavy pre moju priateľku" width="585px" height="auto">
+                                </a>
+                        </div>
+                        <div id="apps">
+                            <a href="../img/app.png">
+                                <img src="../img/app.png" alt="Prvá appka" width="585px" height="auto">
+                            </a>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -148,7 +154,7 @@
             
         </div>
     </footer>
-    
+
     <script src="../jquery.js/jquery.js" ></script>
     <script src="../javascrips/script.js" ></script>
     

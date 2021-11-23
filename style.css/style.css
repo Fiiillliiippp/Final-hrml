@@ -300,6 +300,23 @@ img {
     transition: 0.5s ease;
 }
 
+.back-to-top{
+    color: #4b4b4b;
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+    z-index: 20;
+    display: block;
+    opacity: .55;
+}
+
+.back-to-top:hover,
+.back-to-top:focus {
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+
 #overlay{
     background: rgba(0, 0, 0, .7);
     width: 100%;

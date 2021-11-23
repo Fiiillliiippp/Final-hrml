@@ -35,4 +35,41 @@
         if( event.which === 27 ) overlay.fadeOut(300);
     });
 
+    // scrolovanie obrazkov
+
+    var menu = $('.menu'),
+        menuLinks = menu.find('a');
+        
+    menuLinks.on('click', function(event) {
+        var id = this.hash;
+        // zoscrolluje
+        $('html,body').animate({ scrollTop:$(id).offset().top }, 1000, function() {
+        window.location.hash = id;
+    });
+        // zabrani default akcii
+        event.preventDefault;
+    });
+
+    // back to top
+    var backToTop = $('<a></a>', {
+                            href: '#',
+                            class: 'back-to-top',
+                            html:'<i class="fa fa-caret-up fa-5x"></i>'
+                        });
+
+    backToTop
+            .hide()
+            .appendTo('body')
+            .on('click', function(){
+                $('html,body').animate({ scrollTop: 0}, 1000);
+            });
+
+    // objavenie a zmiznutie sipky
+    var win = $(window);
+    win.on('scroll', function(){
+        if(win.scrollTop() >= 400) backToTop.fadeIn(1000);
+        else backToTop.hide();
+    });
+
+
 })(jQuery);

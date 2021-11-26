@@ -71,5 +71,38 @@
         else backToTop.hide();
     });
 
+    // animacie
+    $('.post-title').on('click', function() {
+        $(this).css({ position:'relative'})
+        .addClass('round-round')
+        .animate({ left:400}, {
+            duration: 1000,
+        })
+        .animate({ top:-800}, 500)
+    });
+
+    // $('.post-title')
+    //     .css({ position: 'relative'})
+    //     .on('click', function() {
+    //         $(this).animate({ left: '-=50' })
+    //     })
+
+    // $('.post-title')
+    //     .on('click', function(){
+    //         var e = $(this),
+    //             className = 'round-round';
+    //         e.toggleClass(className);
+            
+    //     });
+
+
+
+
+
+
+
+
+
+
 
 })(jQuery);

@@ -35,20 +35,20 @@
         if( event.which === 27 ) overlay.fadeOut(300);
     });
 
-    // scrolovanie obrazkov
+    // // scrolovanie obrazkov
 
-    var menu = $('.menu'),
-        menuLinks = menu.find('a');
+    // var menu = $('.menu'),
+    //     menuLinks = menu.find('a');
         
-    menuLinks.on('click', function(event) {
-        var id = this.hash;
-        // zoscrolluje
-        $('html,body').animate({ scrollTop:$(id).offset().top }, 1000, function() {
-        window.location.hash = id;
-    });
-        // zabrani default akcii
-        event.preventDefault;
-    });
+    // menuLinks.on('click', function(event) {
+    //     var id = this.hash;
+    //     // zoscrolluje
+    //     $('html,body').animate({ scrollTop:$(id).offset().top }, 1000, function() {
+    //     window.location.hash = id;
+    // });
+    //     // zabrani default akcii
+    //     event.preventDefault;
+    // });
 
     // back to top
     var backToTop = $('<a></a>', {
@@ -71,38 +71,68 @@
         else backToTop.hide();
     });
 
-    // animacie
-    $('.post-title').on('click', function() {
-        $(this).css({ position:'relative'})
-        .addClass('round-round')
-        .animate({ left:400}, {
-            duration: 1000,
-        })
-        .animate({ top:-800}, 500)
+    // // animacie
+    // $('.post-title').on('click', function() {
+    //     $(this).css({ position:'relative'})
+    //     .addClass('round-round')
+    //     .animate({ left:400}, {
+    //         duration: 1000,
+    //     })
+    //     .animate({ top:-800}, 500)
+    // });
+
+    // random farba
+    var colors = ['red','green', '#e64134', '#eb70b1','#0f1a5f'];
+    if ( $(this).is(':animated') ) return;
+
+    $('.nav-bar').find('li').on('mouseenter', function(){
+        var newColor = colors[ Math.floor (Math.random() * colors.length)];
+    
+        $(this).animate({ backgroundColor: newColor});
     });
 
-    // $('.post-title')
-    //     .css({ position: 'relative'})
-    //     .on('click', function() {
-    //         $(this).animate({ left: '-=50' })
-    //     })
 
-    // $('.post-title')
-    //     .on('click', function(){
-    //         var e = $(this),
-    //             className = 'round-round';
-    //         e.toggleClass(className);
-            
-    //     });
+    // GALÉRIA
 
+    // najdem vsetky galerie
+    var galleries = $('.gallery-set');
 
+    // skryjeme
+    galleries.hide();
 
+    // najdeme link, kt je selected
+    var selected = $('.controls').find('.selected');
 
+    // funkcia na zobrazenie selected galerie
+    function showGallery (selected) {
+        if ( selected.length ) {
+            var id = selected.find('a').attr('href');
+            selectedGallery = $(id);
+        }
 
+        var newGallery = selectedGallery.length ? selectedGallery : galleries.eq(0);
 
+        // ak galeria neexistuje zobrazime prvu alebo inu existujucu
+        // selectedGallery.length ? selectedGallery.show() : galleries.eq(0).show();
 
+        galleries.not( newGallery ).hide();
 
+        newGallery.show().addClass('fadeInLeft');
 
+    }
 
+    // zobraz selected galeriu
+    showGallery(selected);
+
+    $('.controls a').on('click', function(event){
+       var li = $(this).parent();
+
+        li.addClass('selected')
+          .siblings().removeClass('selected');
+    
+        showGallery( li );
+
+        event.preventDefault();
+    });
 
 })(jQuery);

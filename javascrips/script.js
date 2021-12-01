@@ -1,3 +1,8 @@
+    // PRVE PISMENKO SA DA NA VELKE A PRIPOJI SA K NEMU ZVYSOK SLOVA
+    String.prototype.capitalize = function() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    };
+
 (function ($){
 
     // opacity obrazkov
@@ -92,47 +97,89 @@
     });
 
 
-    // GALÉRIA
+//     // GALÉRIA
 
-    // najdem vsetky galerie
-    var galleries = $('.gallery-set');
+//     // najdem vsetky galerie
+//     var galleries = $('.gallery-set');
 
-    // skryjeme
-    galleries.hide();
+//     // skryjeme
+//     galleries.hide();
 
-    // najdeme link, kt je selected
-    var selected = $('.controls').find('.selected');
+//     // najdeme link, kt je selected
+//     var selected = $('.controls').find('.selected');
 
-    // funkcia na zobrazenie selected galerie
-    function showGallery (selected) {
-        if ( selected.length ) {
-            var id = selected.find('a').attr('href');
-            selectedGallery = $(id);
-        }
+//     // funkcia na zobrazenie selected galerie
+//     function showGallery (selected, fadeClass) {
+//         if ( selected.length ) {
+//             var id = selected.find('a').attr('href');
+//             selectedGallery = $(id);
+//         }
 
-        var newGallery = selectedGallery.length ? selectedGallery : galleries.eq(0);
+//         var newGallery = selectedGallery.length ? selectedGallery : galleries.eq(0);
 
-        // ak galeria neexistuje zobrazime prvu alebo inu existujucu
-        // selectedGallery.length ? selectedGallery.show() : galleries.eq(0).show();
+//         // ak galeria neexistuje zobrazime prvu alebo inu existujucu
+//         // selectedGallery.length ? selectedGallery.show() : galleries.eq(0).show();
 
-        galleries.not( newGallery ).hide();
+//         galleries.not( newGallery ).hide();
 
-        newGallery.show().addClass('fadeInLeft');
+//         newGallery.show().addClass(fadeClass || 'fadeInLeft');
 
-    }
+//     }
 
-    // zobraz selected galeriu
+//     // zobraz selected galeriu
+//     showGallery(selected);
+
+//     $('.controls a').on('click', function(event){
+//        var li = $(this).parent(),
+//             fadeClass = 'fadeIn' + li.data ('from').capitalize();
+
+//         li.addClass('selected')
+//           .siblings().removeClass('selected');
+    
+//         showGallery( li, fadeClass );
+
+//         event.preventDefault();
+//     });
+
+// zobraz selected galeriu
     showGallery(selected);
 
     $('.controls a').on('click', function(event){
-       var li = $(this).parent();
+       var li = $(this).parent(),
+            fadeClass = 'fadeIn' + li.data ('from').capitalize();
 
         li.addClass('selected')
           .siblings().removeClass('selected');
     
-        showGallery( li );
+        showGallery( li, fadeClass );
 
         event.preventDefault();
     });
 
-})(jQuery);
+// })(jQuery);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

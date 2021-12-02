@@ -8,18 +8,19 @@
     // opacity obrazkov
     var gallery = $('.gallery');
         startingOpacity = gallery.find('img').css('opacity');
-    gallery.find('img').on('mouseenter mouseleave', function(event){
+    gallery.on('mouseenter mouseleave', 'img', function(event){
         var opacity = event.type === 'mouseenter' ? 1 : startingOpacity;
         $(this).stop().fadeTo(200, opacity);
     });
 
-    
+
+    // LIGHTBOX
     // overlay obrazku
     var overlay = $('<div/>', {id: 'overlay'});
         overlay.appendTo('body').hide();
 
     // po kliknuti na obrazok
-    gallery.find('a').on('click', function(event){
+    gallery.on('click', 'a', function(event){
         
         var href = $(this).attr('href'),
             image = $('<img>', {src: href, alt: 'obrázok'});
@@ -142,21 +143,64 @@
 //     });
 
 // zobraz selected galeriu
-    showGallery(selected);
+    // showGallery(selected);
+
+    // $('.controls a').on('click', function(event){
+    //    var li = $(this).parent(),
+    //         fadeClass = 'fadeIn' + li.data ('from').capitalize();
+
+    //     li.addClass('selected')
+    //       .siblings().removeClass('selected');
+    
+    //     showGallery( li, fadeClass );
+
+    //     event.preventDefault();
+    // });
+
+    var gallery = $('.gallery'),
+        selected = $('.controls').find('.selected');
 
     $('.controls a').on('click', function(event){
-       var li = $(this).parent(),
-            fadeClass = 'fadeIn' + li.data ('from').capitalize();
-
-        li.addClass('selected')
-          .siblings().removeClass('selected');
-    
-        showGallery( li, fadeClass );
-
+        // nechcem ist na podstranku
         event.preventDefault();
-    });
 
-// })(jQuery);
+        var a = $(this),
+            li = a.parent(),
+            // vytiahnem adresu linku
+            href = a.attr('href');
+
+        // ak chcem zobrazit uz zobrazene,kaslem na to
+        if (selected.is ( li )) return;
+
+        // vyznacim noveho rodica
+        selected = li;
+
+        // oznacim link na kt kliknem
+        li.addClass('selected').siblings().removeClass('selected');    
+            
+        gallery.find('.gallery-set').fadeOut();
+
+        $.ajax({
+            url: href,
+            type: 'GET',
+            dataType: 'html'
+        }).done(function(data){ 
+            var newGallery2 = $(data).find('.gallery-set');
+                gallery.html( newGallery2 );
+
+            newGallery2.addClass('fadeIn' + selected.data('from').capitalize());
+        });
+
+
+        // //do elementu gallery nacitame obsah stranky z tohoto linku
+        // gallery.load(href);
+        
+        
+    })
+
+
+
+})(jQuery);
 
 
 
